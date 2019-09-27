@@ -9,6 +9,7 @@ interval = 25*60
 waitTime = 20
 
 root = tk.Tk()
+root.attributes("-topmost", True)
 root.configure(background=bgColor)
 
 nextTime = datetime.datetime.now()+datetime.timedelta(seconds=interval)
@@ -32,9 +33,9 @@ root.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_c
 def startChecking():
     global nextTime
     while True:
-        print(datetime.datetime.now(),nextTime,datetime.datetime.now()>nextTime)
+        #print(datetime.datetime.now(),nextTime,datetime.datetime.now()>nextTime)
         if datetime.datetime.now()>nextTime:
-            print("Take a Break")
+            #print("Take a Break")
             root.deiconify()
             time.sleep(waitTime)
             root.withdraw()
